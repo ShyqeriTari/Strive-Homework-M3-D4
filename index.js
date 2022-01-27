@@ -4,10 +4,10 @@ let  titles = []
 .then(Response => Response.json())
 .then(data => {
   
-    let container = document.querySelector(".container")
+    let container = document.querySelectorAll(".container")
     let input = document.createElement("div")
     input.innerHTML = `<center><input type="text" placeholder="Search by title" style="margin-bottom: 15px;" onchange="searchFilter(event)"></center>`
-container.before(input)
+container[1].before(input)
 data.forEach(name => {
     titles.push(name.title)
 })
@@ -24,11 +24,13 @@ function addToCart(){
     for (let i = 0; i < cards.length; i++ ) {
         buttons[i].addEventListener("click", function() {
           cards[i].style.border = "5px solid  crimson"
-        //   let cartCard = document.createElement("li")
-        //   cartCard.innerText = titles[i]
-        //   row2.appendChild(cartCard)
+          let cartCard = document.createElement("li")
+          cartCard.innerText = titles[i]
+          row2.appendChild(cartCard)
+        
         })
       }
+      
 }
 
 
@@ -51,6 +53,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
     console.log(data)
     
     let row = document.querySelector(".row")
+    
     data.forEach(book => {
 
         let card = document.createElement("div")
@@ -66,10 +69,10 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
       row.appendChild(card)
 
-      addToCart()
+      
       hideCard()
   })
-
+  addToCart()
 })
 
 
