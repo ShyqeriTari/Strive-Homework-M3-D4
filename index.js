@@ -1,13 +1,31 @@
+let  titles = []
+
+  fetch("https://striveschool-api.herokuapp.com/books")
+.then(Response => Response.json())
+.then(data => {
+  
+    let container = document.querySelector(".container")
+    let input = document.createElement("div")
+    input.innerHTML = `<center><input type="text" placeholder="Search by title" style="margin-bottom: 15px;" onchange="searchFilter(event)"></center>`
+container.before(input)
+data.forEach(name => {
+    titles.push(name.title)
+})
+  })
+
+
 
 function addToCart(){
     let buttons = document.querySelectorAll("button:nth-of-type(1)")
     let cards = document.querySelectorAll(".card")
     let cols = document.querySelectorAll(".col")
     let row2 = document.querySelector(".row2")
+            
     for (let i = 0; i < cards.length; i++ ) {
         buttons[i].addEventListener("click", function() {
           cards[i].style.border = "5px solid  crimson"
-        //   let cartCard = cols[i].cloneNode(true)
+        //   let cartCard = document.createElement("li")
+        //   cartCard.innerText = titles[i]
         //   row2.appendChild(cartCard)
         })
       }
@@ -59,20 +77,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
 
 
-let  titles = []
 
-  fetch("https://striveschool-api.herokuapp.com/books")
-.then(Response => Response.json())
-.then(data => {
-  
-    let container = document.querySelector(".container")
-    let input = document.createElement("div")
-    input.innerHTML = `<center><input type="text" placeholder="Search by title" style="margin-bottom: 15px;" onchange="searchFilter(event)"></center>`
-container.before(input)
-data.forEach(name => {
-    titles.push(name.title)
-})
-  })
 
   function searchFilter(event) {
     //  titles.filter(word = word.includes(event.target.value))
