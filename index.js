@@ -67,13 +67,21 @@ data.forEach(name => {
 
   function searchFilter(event) {
     //  titles.filter(word = word.includes(event.target.value))
+    // let cards = document.querySelectorAll(".col")
+    // let titles = document.querySelectorAll("h5")
+    // for (let i = 0; 0 < cards.length; i++){
+    //     let titlesText = titles[i].innerHTML
+    //     if (titlesText != event.target.value){
+    //         cards[i].style.display = "none"
+    //     }
+    // }
      console.log( event.target.value)
   }
 
 
 
 window.onload = () => {
-
+    addToCart()
 }
 
 
