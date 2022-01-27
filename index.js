@@ -11,7 +11,8 @@ container[1].before(input)
 data.forEach(name => {
     titles.push(name)
 })
-  })
+  }).catch((err) => console.error(err.message))
+
 
 
 
@@ -118,7 +119,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       hideCard()
   })
   addToCart()
-})
+}).catch((err) => console.error(err.message))
 
 
 
