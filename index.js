@@ -37,7 +37,6 @@ data.forEach(name => {
     span.innerText = cards.length + " books in the cart"
     }
 }
-
   function cartRemove() {
 
     let buttons = document.querySelectorAll(".remove")
